@@ -54,7 +54,7 @@ const TaskAddModal = ({data, setData, author, list, priority, setOpenAddTask}) =
                     setValue={(e) => setModalData({...modalData, priority: e.id})}/>
         </div>
         <div className={s.btnWrapper}>
-          <button className={s.delete} onClick={() => setOpenAddTask(false)}>Удалить</button>
+          <button className={s.delete} onClick={() => setOpenAddTask(false)}>Отмена</button>
           <button className={s.save} onClick={() => {
             if (modalData.title && modalData.description && modalData.author_name) {
               setData([...data, modalData]);
