@@ -1,0 +1,24 @@
+.wrapper {
+    padding: 10px 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .2s;
+}
+.titleWrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.priority {
+    border-radius: 50px;
+    width: 16px;
+    height: 16px;
+}
+.title {
+
+}
+.wrapper:hover {
+    background-color: #a6c5e229;
+}

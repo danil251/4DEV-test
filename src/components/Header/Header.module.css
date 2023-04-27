@@ -1,0 +1,28 @@
+.container {
+    background-color: #026AA7;
+    width: 100%;
+    height: 70px;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.newTask {
+    padding: 10px 20px;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    transition: .3s;
+    font-size: 18px;
+}
+.newTask:hover {
+    background-color: #a6c5e229;
+}
+.exit {
+
+}

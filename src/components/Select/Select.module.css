@@ -1,0 +1,65 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+.title {
+    font-weight: 500;
+    font-size: 16px;
+    margin-right: 20px;
+    min-width: 100px
+}
+.selectBody {
+    padding: 10px 20px;
+    background-color: #e7e7e7;
+    cursor: pointer;
+    width: 100%;
+    height: 41px;
+    text-align: center;
+    border-radius: 10px;
+    position: relative;
+}
+.input {
+    padding: 10px 20px;
+    background-color: #e7e7e7;
+    width: 100%!important;
+    height: 41px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+.selectBodyActive {
+    border-radius: 10px 10px 0 0;
+}
+.selectItemBg {
+    position: absolute;
+    background-color: #fff;
+    width: 100%;
+    left: 0;
+    top: 41px;
+    border-radius: 0 0 10px 10px;
+    height: 0;
+    transform-origin: top center;
+    transform: scaleY(0);
+    transition: .3s;
+    opacity: 0;
+    z-index: 1;
+}
+.active {
+  transform: scaleY(1);
+  height: auto;
+  opacity: 1;
+}
+
+.selectItem {
+    padding: 10px 0;
+    transition: .3s;
+}
+.selectItem:hover {
+    background-color: #e7e7e7;
+}
+.selectItem:hover:last-child {
+    background-color: #e7e7e7;
+    border-radius: 0 0 10px 10px;
+}
