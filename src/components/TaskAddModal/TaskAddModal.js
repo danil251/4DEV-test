@@ -20,7 +20,6 @@ const TaskAddModal = ({data, setData, author, list, priority, setOpenAddTask, op
 
   useEffect(() => {
     document.addEventListener("keydown", (e) => {
-      console.log(e.key);
       if (e.key === "Enter") saveTask();
       else if (e.key === "Escape") setOpenAddTask(null);
     });

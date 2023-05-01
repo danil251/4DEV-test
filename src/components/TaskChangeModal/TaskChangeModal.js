@@ -18,7 +18,6 @@ const TaskChangeModal = ({openChangeTask, setOpenChangeTask, setData, list, prio
 
   useEffect(() => {
     document.addEventListener("keydown", (e) => {
-      console.log(e.key);
       if (e.key === "Enter") saveHandler();
       else if (e.key === "Escape") setOpenChangeTask(false);
     });
