@@ -1,14 +1,15 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import s from '../TaskChangeModal/TaskChangeModal.module.css';
 import style from '../Select/Select.module.css';
 import Select from '../Select/Select';
 import {v4 as uuidv4} from 'uuid';
 
-const TaskAddModal = ({data, setData, author, list, priority, setOpenAddTask}) => {
+const TaskAddModal = ({data, setData, author, list, priority, setOpenAddTask, openAddTask = 0}) => {
+  const [error, setError] = useState('')
   const [modalData, setModalData] = useState(
     {
       id: uuidv4(),
-      status: 0,
+      status: openAddTask,
       priority: 0,
       title: '',
       description: '',
@@ -16,6 +17,22 @@ const TaskAddModal = ({data, setData, author, list, priority, setOpenAddTask}) =
       author_name: '',
     },
   );
+
+  useEffect(() => {
+    document.addEventListener("keydown", (e) => {
+      console.log(e.key);
+      if (e.key === "Enter") saveTask();
+      else if (e.key === "Escape") setOpenAddTask(null);
+    });
+  }, [document]);
+
+
+  const saveTask = () => {
+    if (modalData.title && modalData.description && modalData.author_name) {
+      setData([...data, modalData]);
+      setOpenAddTask(false)
+    } else setError('Заполнены не все поля')
+  }
 
   return (
     <div className={s.modal} onClick={() => setOpenAddTask(false)}>
@@ -54,13 +71,9 @@ const TaskAddModal = ({data, setData, author, list, priority, setOpenAddTask}) =
                     setValue={(e) => setModalData({...modalData, priority: e.id})}/>
         </div>
         <div className={s.btnWrapper}>
+          <div className={s.error}>{error}</div>
           <button className={s.delete} onClick={() => setOpenAddTask(false)}>Отмена</button>
-          <button className={s.save} onClick={() => {
-            if (modalData.title && modalData.description && modalData.author_name) {
-              setData([...data, modalData]);
-              setOpenAddTask(false)
-            }
-          }}>Сохранить</button>
+          <button className={s.save} onClick={saveTask}>Сохранить</button>
         </div>
       </div>
     </div>

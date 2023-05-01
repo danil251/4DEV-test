@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import s from './TaskChangeModal.module.css'
 import Select from '../Select/Select';
 
@@ -15,6 +15,14 @@ const TaskChangeModal = ({openChangeTask, setOpenChangeTask, setData, list, prio
     setData([...data.filter(f => f.id !== modalData.id)])
     setOpenChangeTask(null)
   }
+
+  useEffect(() => {
+    document.addEventListener("keydown", (e) => {
+      console.log(e.key);
+      if (e.key === "Enter") saveHandler();
+      else if (e.key === "Escape") setOpenChangeTask(false);
+    });
+  }, [document]);
 
   return (
     <div className={s.modal} onClick={() => setOpenChangeTask(null)}>

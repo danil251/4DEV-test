@@ -8,14 +8,12 @@ import AccessError from './pages/AccessError/AccessError';
 function App() {
   const navigate = useNavigate();
   const token = useMemo(() => localStorage.getItem('token'), []);
-  const {pathname}  = useLocation()
+  const {pathname} = useLocation();
 
   useEffect(() => {
-    if (token) {
-      navigate('/MainPage');
-    } else if (!token && pathname !== '/') {
-       navigate('/access-error');
-    }
+    if (token) navigate('/MainPage');
+    else if (!token && pathname === '/') navigate('/');
+    else navigate('/access-error');
   }, [token]);
 
   return (

@@ -59,7 +59,7 @@ const TaskList = ({title, id, data, setOpenChangeTask, setOpenAddTask, setData, 
       <div className={s.tasksWrapper}>
         {listItemSort().map((task, index) => <Task key={index} setOpenChangeTask={setOpenChangeTask} data={data} task={task} id={id} setData={setData} idItem={idItem} setIdItem={setIdItem}/>)}
       </div>
-      {!listItemArr.length && <div id={id} className={s.add} onClick={() => setOpenAddTask(true)}>+ Новая задача</div>}
+      {!listItemArr.length && <div id={id} className={s.add} onClick={() => setOpenAddTask(id)}>+ Новая задача</div>}
     </div>
   );
 };

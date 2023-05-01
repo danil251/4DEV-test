@@ -130,12 +130,13 @@ const MainPage = () => {
 
   ]);
   const [openChangeTask, setOpenChangeTask] = useState(null);
-  const [openAddTask, setOpenAddTask] = useState(false);
+  const [openAddTask, setOpenAddTask] = useState(null);
   const [idItem, setIdItem] = useState()
+
   return (
     <>
       <div className={s.container}>
-        <Header createTask={() => setOpenAddTask(true)}/>
+        <Header createTask={() => setOpenAddTask(0)}/>
         <div className={s.listsWrapper}>
           {list.map(list => <TaskList setOpenAddTask={setOpenAddTask} data={data} setData={setData} title={list.title} status={list.id}
                                       id={list.id} key={list.id} setOpenChangeTask={setOpenChangeTask} idItem={idItem} setIdItem={setIdItem}/>)}
@@ -145,8 +146,8 @@ const MainPage = () => {
       {openChangeTask &&
       <TaskChangeModal openChangeTask={openChangeTask} setOpenChangeTask={setOpenChangeTask} data={data}
                        setData={setData} author={author} list={list} priority={priority}/>}
-      {openAddTask && <TaskAddModal data={data} setData={setData} author={author} list={list} priority={priority}
-                                    setOpenAddTask={setOpenAddTask}/>}
+      {typeof openAddTask === 'number' && <TaskAddModal data={data} setData={setData} author={author} list={list} priority={priority}
+                                    setOpenAddTask={setOpenAddTask} openAddTask={openAddTask}/>}
     </>
   );
 };
