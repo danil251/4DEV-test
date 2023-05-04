@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     if (token) navigate('/MainPage');
-    else if (!token && pathname === '/') navigate('/');
+    else if (!token && (pathname === '/' || pathname === '/4DEV-test' || pathname === '/4DEV-test/')) navigate('/');
     else navigate('/access-error');
   }, [token]);
 

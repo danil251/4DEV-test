@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react';
+import React, {useMemo} from 'react';
 import s from './Task.module.css'
 
 const Task = ({task, data, setOpenChangeTask, id, setData, idItem, setIdItem}) => {
